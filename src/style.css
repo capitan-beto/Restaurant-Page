@@ -39,12 +39,19 @@ body {
 
 #content {
     background-color: white;
-    filter: grayscale(80%);
 
     display: grid;
     grid-template-rows: 1fr 5fr;
     grid-column: 1 / -1;
     grid-row: 2 / 3;
+}
+
+.shade-content {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background: #000;
+    filter: opacity(.3);
+    display: none;
 }
 
 .menu-categories {

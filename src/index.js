@@ -11,18 +11,29 @@ function header() {
     hamburger.classList.add("hamburger");
     hamburger
 
+    const shade = document.createElement("div");
+    document.body.appendChild(shade);
+    shade.classList.add("shade-content");
+    shade.onclick = () => {displaySide()};
+
     hamburger.addEventListener("click", () => {
+        displaySide();
+    })
+    
+    const displaySide = () => {
         const sideContainer = document.getElementById("sidebar");
         const content = document.getElementById("content")
         if(sideContainer.classList.contains("hide")){ 
             sideContainer.classList = "visible";
             content.style.gridColumn = "2 / -1"
+            shade.style.display = "block";
         } else {
             sideContainer.classList = "hide";
             content.style.gridColumn = "1 / -1";
+            shade.style.display = "none";
         }
-    })
- 
+    }
+
     const logo = document.createElement("div");
     logo.classList.add("logo");
 
