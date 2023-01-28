@@ -1,13 +1,29 @@
 import "./style.css";
+import {items} from "./data.js";
+
 
 
 function header() {
     const bodyHeader = document.createElement("div");
     bodyHeader.setAttribute("id", "header");
     
-    const hamburger = document.createElement("div");
+    const hamburger = document.createElement("button");
     hamburger.classList.add("hamburger");
-    
+
+    const displaySidebar = (() => {
+        hamburger.addEventListener("click", () => {
+            const sideContainer = document.getElementById("sidebar");
+            const content = document.getElementById("content")
+            if(sideContainer.classList.contains("visible")){ 
+                sideContainer.classList = "hide";
+                content.style.gridColumn = "1 / -1"
+            } else {
+                sideContainer.classList = "visible";
+                content.style.gridColumn = "2 / -1";
+            }
+        })
+    })();
+
     const logo = document.createElement("div");
     logo.classList.add("logo");
     
@@ -16,20 +32,11 @@ function header() {
     return bodyHeader;
 }
 
-function container() {
-    //Crear archivo data.js y pasar el array de objetos pallá,
 
-    const items = [
-        {
-            name: "Entradas",
-            img: "url(./images/DO.jpg)"
-        },
-        {
-            name: "Combos",
-            img: "url(./images/bg.jpg)"
-        },
-    ]
-    
+function container() {
+    const content = document.createElement("div");
+    content.setAttribute("id", "content");
+
     const cat = document.createElement("div");
     cat.classList.add("menu-categories");
     cat.textContent = "Categorías";
@@ -39,13 +46,13 @@ function container() {
     
     const options = (() => {
         items.forEach(item => {
-            let p = document.createElement("div");
+            let p = document.createElement("button");
             p.textContent = item.name;
+            p.style.backgroundImage = item.img;
             optionsContainer.appendChild(p);
         })
     })();
 
-    const content = document.querySelector("#content");
     content.append(cat,optionsContainer);
 
     return content;
@@ -54,13 +61,15 @@ function container() {
 function sidebar() {
     const sideContainer = document.createElement("div");
     sideContainer.setAttribute("id", "sidebar");
-    
+    sideContainer.classList.add("visible");
+
     for(let i = 0; i < 5; i++){
-        let a = document.createElement("div");
+        let a = document.createElement("button");
         a.classList.add("sidebar-option");
-        a.textContent = "HOLA";
         let icon = document.createElement("div");
+        icon.classList.add("side-icon");
         let text = document.createElement("div");
+        text.classList.add("side-text");
 
 
         a.append(icon, text);
@@ -69,5 +78,6 @@ function sidebar() {
     
     return sideContainer;
 }
+
 
 document.body.append(header(), container(), sidebar());

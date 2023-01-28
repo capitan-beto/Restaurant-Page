@@ -1,16 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
 body {
     margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
 
     display: grid;
     grid-template-columns: 20vw 80vw;
-    grid-template-rows: 8vh 92vh;
+    grid-template-rows: 9vh 91vh;
 }
 
 
 #header {
     background-color: black;
+    display: flex;
+    align-items: center;
 
     grid-column: 1 / -1;
+}
+
+.logo, .hamburger {
+    width: 32px;
+    height: 32px;
+    margin: 0 5px 0 5px;
+}
+
+.logo {
+    background: url(./images/icons/favicon-32x32.png);
+}
+
+.hamburger {
+    border: none;
+
+    background: url(images/icons/hamburger.svg);
+    background-size: 100%;
+    filter: invert(99%) sepia(3%) saturate(0%) hue-rotate(293deg) brightness(113%) contrast(100%);
 }
 
 #content {
@@ -23,16 +46,118 @@ body {
 }
 
 .menu-categories {
-    background: yellow;
+    background: #ffc107;
+    padding: 16px 5px 16px 0;
+
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
 }
 
 .options {
     display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.options > button {
+    margin: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: large;
+    text-transform: uppercase;
+    border: none;
+
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #sidebar {
-    background-color: yellow;
+    background-color: #ffc107;
 
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 }
+
+.hide {
+    display: none;
+}
+
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    background-color: #ffc107;
+    border: none;
+    width: 100%;
+    padding: 7% 0 7% 0;
+
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.sidebar-option:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.sidebar-option > div {
+    margin: 0 5px 0 5px;
+}
+
+.side-icon {
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+
+    filter: invert(99%) sepia(3%) saturate(0%) hue-rotate(293deg) brightness(113%) contrast(100%);
+}
+
+.sidebar-option:nth-child(1) > .side-icon{
+    background-image: url(images/icons/home.svg);
+}
+
+.sidebar-option:nth-child(1) > .side-text::before {
+    content: "Inicio";
+}
+
+.sidebar-option:nth-child(2) > .side-icon{
+    background-image: url(images/icons/info.svg);
+}
+
+.sidebar-option:nth-child(2) > .side-text::before {
+    content: "Información";
+}
+
+.sidebar-option:nth-child(3) > .side-icon{
+    background-image: url(images/icons/location.svg);
+}
+
+.sidebar-option:nth-child(3) > .side-text::before {
+    content: "Ubicación";
+}
+
+.sidebar-option:nth-child(4) > .side-icon{
+    background-image: url(images/icons/instagram.svg);
+}
+
+.sidebar-option:nth-child(4) > .side-text::before {
+    content: "Instagram";
+}
+
+.sidebar-option:nth-child(5) > .side-icon{
+    background-image: url(images/icons/facebook.svg);
+}
+
+.sidebar-option:nth-child(5) > .side-text::before {
+    content: "Facebook";
+}
+
+
+
+
+
