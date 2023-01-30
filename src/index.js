@@ -1,6 +1,5 @@
 import "./style.css";
-import {items} from "./data.js";
-
+import { items } from "./data.js";
 
 
 function header() {
@@ -9,7 +8,6 @@ function header() {
     
     const hamburger = document.createElement("button");
     hamburger.classList.add("hamburger");
-    hamburger
 
     const shade = document.createElement("div");
     document.body.appendChild(shade);
@@ -25,7 +23,7 @@ function header() {
         const content = document.getElementById("content")
         if(sideContainer.classList.contains("hide")){ 
             sideContainer.classList = "visible";
-            content.style.gridColumn = "2 / -1"
+            content.style.gridColumn = "2 / -1";
             shade.style.display = "block";
         } else {
             sideContainer.classList = "hide";

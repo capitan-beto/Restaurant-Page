@@ -33,6 +33,6 @@ export let items = [
     },
     {
         name: "Ramen",
-        img: "url(../src/images/items/ramen.png)"
+        img: "url(../src/images/items/ramen.jpg)"
     },
 ]
