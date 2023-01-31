@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
 
+:root {
+    --main-bg-yellow: #ffc107;
+}
+
 body {
     margin: 0;
     font-family: 'Noto Sans TC', sans-serif;
@@ -37,6 +41,7 @@ body {
 }
 
 #content {
+    height: 100%;
     background-color: white;
 
     display: grid;
@@ -55,7 +60,7 @@ body {
 }
 
 .menu-categories {
-    background: #ffc107;
+    background: var(--main-bg-yellow);
     padding: 16px 0 0 20px;
 
     font-size: 32px;
@@ -100,7 +105,7 @@ body {
 }
 
 #sidebar {
-    background-color: #ffc107;
+    background-color: var(--main-bg-yellow);
 
     grid-row: 2 / 3;
 
@@ -113,7 +118,7 @@ body {
 .sidebar-option {
     display: flex;
     align-items: center;
-    background-color: #ffc107;
+    background-color: var(--main-bg-yellow);
     border: none;
     width: 100%;
     padding: 7% 0 7% 0;
@@ -179,4 +184,47 @@ body {
 
 .sidebar-option:nth-child(5) > .side-text::before {
     content: "Facebook";
+}
+
+.about-body {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    gap: 20px;
+    margin: 30px 0 30px 0;
+
+    justify-self: center;
+    width: 70%;
+    height: 100%;
+
+    grid-row: 1 / 3;
+
+    background-color: var(--main-bg-yellow);
+}
+
+.member-container {
+    grid-column: 2 / 3;
+    display: grid;
+
+    grid-template-areas:
+        "img title title"
+        "img para para"
+        "img para para";
+}
+
+.img-member{
+    grid-area: img;
+    background-color: blanchedalmond;
+}
+
+.title-member{
+    grid-area: title;
+    background-color: blanchedalmond;
+    font-size: 32px;
+    margin: 0;
+}
+
+.para-member{
+    grid-area: para;
+    background-color: blanchedalmond;
+    font-size: 16px;
 }
