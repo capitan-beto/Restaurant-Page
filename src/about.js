@@ -12,7 +12,8 @@ export function aboutPage() {
 
     let container = document.createElement("div");
     container.setAttribute("id", "content");
-    container.style.backgroundColor = "#000";
+    container.style.gridTemplateRows = "100%";
+    document.body.style.backgroundColor = "#000";
 
     let content = document.createElement("div");
     content.classList.add("about-body");
@@ -30,9 +31,10 @@ export function aboutPage() {
             let paraMember = document.createElement("p");
             paraMember.classList.add("para-member");
 
-            // imgMember.style.backgroundImage = item.img;
+            imgMember.style.backgroundImage = item.img;
             titleMember.textContent = item.name;
             paraMember.textContent = item.about;
+            
             
             content.appendChild(member);
             member.append(imgMember, titleMember, paraMember);

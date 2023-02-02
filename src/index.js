@@ -1,7 +1,7 @@
 import "./style.css";
 import { items } from "./data.js";
 import { aboutPage } from "./about.js"
-
+import { locationPage } from "./location.js"
 
 export function header() {
     const bodyHeader = document.createElement("div");
@@ -96,23 +96,7 @@ export function sidebar() {
 
 document.body.append(header(), container(), sidebar());
 
-// export function sidebarMenu() {
-//     const sideContainer = document.getElementById("sidebar");
-//     const content = document.getElementById("content");
-//     const shade = document.querySelector(".shade-content");
-//     if(sideContainer.classList.contains("hide")){ 
-//         sideContainer.classList = "visible";
-//         content.style.gridColumn = "2 / -1";
-//         shade.style.display = "block";
-//     } else {
-//         sideContainer.classList = "hide";
-//         content.style.gridColumn = "1 / -1";
-//         shade.style.display = "none";
-//     }
-// };
-
 function sidebarLinks() {
-    
     const home = document.querySelector("#sidebar button:nth-child(1)");
     home.addEventListener("click", () => { document.location.href = "index.html" });
     
@@ -124,6 +108,7 @@ function sidebarLinks() {
     const location = document.querySelector("#sidebar button:nth-child(3)");
     location.addEventListener("click", () => {
         console.log("location");
+        document.body.appendChild(locationPage());
     })
 
     const insta = document.querySelector("#sidebar button:nth-child(4)");
