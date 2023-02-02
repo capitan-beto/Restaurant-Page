@@ -98,7 +98,9 @@ document.body.append(header(), container(), sidebar());
 
 function sidebarLinks() {
     const home = document.querySelector("#sidebar button:nth-child(1)");
-    home.addEventListener("click", () => { document.location.href = "index.html" });
+    home.addEventListener("click", () => { 
+        returnHome();
+    });
     
     const info = document.querySelector("#sidebar button:nth-child(2)");
     info.addEventListener("click", () => {
@@ -107,10 +109,9 @@ function sidebarLinks() {
 
     const location = document.querySelector("#sidebar button:nth-child(3)");
     location.addEventListener("click", () => {
-        console.log("location");
         document.body.appendChild(locationPage());
     })
-
+    
     const insta = document.querySelector("#sidebar button:nth-child(4)");
     insta.addEventListener("click", () => {
         window.open("http://www.instagram.com/sushirock.arroyito");
@@ -120,7 +121,16 @@ function sidebarLinks() {
     fb.addEventListener("click", () => {
         window.open("https://www.facebook.com/sushirock.arroyito");
     })
+    
+}
 
+function returnHome() {
+    let categories = document.querySelector("#content");
+    categories.remove();
+    document.querySelector(".shade-content").style.display = "none";
+    document.body.appendChild(container());
+    document.body.style.background = "white";
+    document.querySelector("#sidebar").classList = "hide";
 }
 
 sidebarLinks();
