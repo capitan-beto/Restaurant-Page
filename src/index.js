@@ -1,7 +1,9 @@
 import "./style.css";
 import { items } from "./data.js";
-import { aboutPage } from "./about.js"
-import { locationPage } from "./location.js"
+import { aboutPage } from "./about.js";
+import { locationPage } from "./location.js";
+
+
 
 export function header() {
     const bodyHeader = document.createElement("div");
@@ -13,8 +15,9 @@ export function header() {
     const shade = document.createElement("div");
     document.body.appendChild(shade);
     shade.classList.add("shade-content");
-    shade.onclick = () => { displaySide() };
-    
+    shade.onclick = () => { displaySide()};
+
+
     hamburger.addEventListener("click", () => {
         displaySide();
     })
@@ -93,6 +96,7 @@ export function sidebar() {
     
     return sideContainer;
 }
+
 
 document.body.append(header(), container(), sidebar());
 
